@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
-    public float speed = 10.0f;
-    public float xRange = 10;
-    public GameObject projectilePrefab;
+    public float horizontalInput; //input Horizontal_movimentação horizontal do player
+    public float speed = 10.0f; //velocidade do player
+    public float xRange = 10; //limitações para os lados; espaço onde ele consegue andar
+    public GameObject projectilePrefab; //prefab da comida
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //keep the player in bounds
+        //mantem o player nas limitações
        if( transform.position.x < -xRange){
         transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
        }
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
       
        if (Input.GetKeyDown(KeyCode.Space))
        {
-        //Launch a projetile from the player
+        //Lança um projetil a partir do player
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
        }
     }
